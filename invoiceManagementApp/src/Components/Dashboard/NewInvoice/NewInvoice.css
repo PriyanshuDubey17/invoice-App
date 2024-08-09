@@ -1,0 +1,87 @@
+.new-invoice-heading {
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding: 0rem;
+}
+
+.first-row-of-new-invoice {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+.new-invoice-input {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: none;
+  width: 25%;
+  border: 1px solid royalblue;
+}
+
+.second-row-of-new-invoice {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+.button-new-invoice {
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  color: #ffffff;
+  font-weight: 500;
+  border-radius: 2rem;
+  margin-top: 1rem;
+  background-color: #467fcf;
+  border: none;
+}
+.button-save-new-invoice {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  background-color: #467fcf;
+}
+
+.new-invoice-button-div {
+  width: 70%;
+  text-align: center;
+}
+
+.product-Wrapper {
+  width: 100%;
+  background-color: rgb(252, 220, 220);
+  padding: 0.5rem;
+  margin-top: 1rem;
+  box-shadow: 1px 2px 5px 3px #0b0d0f;
+  min-height: 15rem;
+}
+
+.product-div {
+  display: flex;
+  gap: 1rem;
+}
+.p {
+  width: 17%;
+}
+.total-wrapper {
+  margin-top: 8rem;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid #111211;
+  padding: 1rem;
+}
+.total-wrapper-p {
+  width: 25%;
+  font-weight: bold;
+  color: #467fcf;
+  font-size: 1.2rem;
+  border: 2px solid #467fcf;
+  padding: 0.5rem;
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+  background-color: rgb(236, 236, 236);
+}

@@ -1,0 +1,77 @@
+.container {
+  /* background-color: black; */
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-div-region {
+  /* background-color: violet; */
+  width: 30rem;
+  height: 90%;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 2px 01px 3px 1px #343a40;
+  /* border: 0.5px solid #343A40; */
+}
+
+form .input-login {
+  padding: 0.7rem;
+  width: 100%;
+  border-radius: 2rem;
+  border: 1px solid #343a40;
+}
+input::placeholder {
+  color: #343a40;
+  font-size: 1rem;
+}
+
+.div-password {
+  /* background-color: blueviolet; */
+  margin-top: 1rem;
+}
+
+form label {
+  color: #343a40;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-left: 1rem;
+}
+
+form .button {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 2rem;
+  margin-top: 1rem;
+  background-color: #467fcf;
+  border: none;
+}
+.do-not-account {
+  text-align: center;
+  width: 100%;
+  padding: 0.2rem;
+  font-size: 1rem;
+  color: #343a40;
+  font-weight: 400;
+  border-radius: 2rem;
+  margin-top: 0.3rem;
+}
+
+h5 {
+  color: #343a40;
+  font-size: 1.2rem;
+}
+.password-toggle-register {
+  border: none;
+  position: absolute;
+  left: 64%;
+  bottom: 42.3%;
+  /* background-color: #467FCF; */
+  cursor: pointer;
+}

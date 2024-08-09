@@ -1,0 +1,62 @@
+.invoice-data-fetch-box {
+  display: flex;
+  background-color: rgb(195, 224, 224);
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
+.invoice-p {
+  width: 15%;
+  text-align: left;
+}
+.pr {
+  width: 60%;
+}
+.invoice-delete-button {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-left: 1rem;
+  background-color: #c21521;
+  width: 5rem;
+  height: 3rem;
+  border-radius: 1rem;
+  /* border: 1px solid #c21521; */
+  border: none;
+}
+.fb {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.loader{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 7rem;
+  
+}
+.not-invoices{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 2rem;
+}
+
+.not-invoices-button{
+  font-size: 0.7rem;
+  color: #ffffff;
+  font-weight: 600;
+ 
+  background-color: #259bea;
+  width: 10rem;
+  height: 2rem;
+  border-radius: 1rem;
+  /* border: 1px solid #c21521; */
+  border: none;
+}
+.not-h1{
+  color: #220af8;
+  font-size: 20px;
+  font-weight: 500;
+}

@@ -1,0 +1,74 @@
+.home-first-row{
+display: flex;
+justify-content: space-around;
+margin-top: 1rem;
+}
+
+.home-box{
+    width: 30%;
+    height: 27vh;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    justify-content: center;
+    align-items: center;
+}
+.box-1{
+    background-color: #343a40;
+    color: white;
+    
+}
+
+.box-2{
+    background-color: #f8f9fa;
+    color: #343a40;
+    
+    
+}
+
+.box-3{
+    background-color: #467fcf;
+    color: white;
+    
+}
+
+.home-second-row{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 4rem;
+    
+}
+.chart-box{
+    width: 60%;
+    height: 50vh;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+}
+.recent-invoices{
+    width: 35%;
+    height: 50vh;
+    border-radius: 10px;
+    background-color: #343a40;
+}
+.recent-invoices h2{
+    color: white;
+    text-align: center;
+    padding: 0.5rem;
+    
+}
+.recent-invoices-inner-div{
+    display: flex;
+    justify-content: space-around;
+    padding: 0.2rem;
+    color: #f8f9fa;
+
+}
+.recent-invoices-inner-div:hover{
+    background-color: #10450f;
+    color: white;
+    cursor: pointer;
+}
+.recentData-p{
+    text-align: left;
+}

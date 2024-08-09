@@ -1,0 +1,74 @@
+.main-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: aquamarine;
+  display: flex;
+}
+
+.side-nav {
+  width: 20%;
+  background-color: #345656;
+  height: 100%;
+}
+
+.main-content {
+  width: 80%;
+  background-color: #c7d7d7;
+  height: 100%;
+}
+
+.profile-logo-company-name {
+  display: flex;
+  padding: 1rem;
+  /* background-color: red; */
+  border-bottom: 3px solid #c7d7d7;
+}
+.profile-logo-company-name img {
+  height: 50px;
+  width: 50px;
+
+  border-radius: 50%;
+}
+
+.logout-btn {
+  background-color: #345656;
+  border: none;
+  color: aliceblue;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.logout-btn:hover {
+  background-color: #e7340c;
+  border-radius: 1rem;
+  width: 50%;
+}
+
+.menu-div {
+  margin-top: 1rem;
+  /*background-color: red;
+    */
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 20px;
+}
+
+.menu-link {
+  color: aliceblue;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+.menu-link:hover {
+  background-color: #467fcf;
+  border-radius: 1rem;
+}
+.heading-h5 {
+  width: 100%;
+  padding: 10px;
+  color: white;
+  font-weight: 600;
+}
