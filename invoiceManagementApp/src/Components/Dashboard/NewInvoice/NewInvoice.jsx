@@ -20,6 +20,24 @@ const NewInvoice = () => {
   const Navigate = useNavigate();
 
   const addProduct = () => {
+    // Validate the product data
+    if (!newInvoiceFormData.productName || !newInvoiceFormData.price || !newInvoiceFormData.quantity) {
+      alert("Please fill all product fields.");
+      return;
+    }
+
+    // Check if price and quantity are valid numbers
+    if (isNaN(newInvoiceFormData.price) || isNaN(newInvoiceFormData.quantity)) {
+      alert("Price and quantity must be valid numbers.");
+      return;
+    }
+
+    if (newInvoiceFormData.quantity <= 0) {
+      alert("Quantity must be greater than 0.");
+      return;
+    }
+
+    // Add the product to the list
     setListProduct([
       ...listProduct,
       {
@@ -41,80 +59,94 @@ const NewInvoice = () => {
   };
 
   const handleNewInvoiceInputChange = (event) => {
-    console.log("handleInput");
-    console.log("hii im name", event.target.name);
-    console.log("hii im value", event.target.value);
-    setNewInvoiceFormData((currentData) => {
-      return { ...currentData, [event.target.name]: event.target.value };
-    });
-  }; // Function for handleChangeInput end here
+    setNewInvoiceFormData((currentData) => ({
+      ...currentData,
+      [event.target.name]: event.target.value,
+    }));
+  };
 
   const saveAllData = async () => {
-    setIsLoading(true);
-    console.log(
-      newInvoiceFormData.to,
-      newInvoiceFormData.address,
-      newInvoiceFormData.phone
-    );
-    console.log(listProduct);
-    console.log(totalProductPrice);
-    const data = await addDoc(collection(db, "invoice"), {
-      to: newInvoiceFormData.to,
-      phone: newInvoiceFormData.phone,
-      address: newInvoiceFormData.address,
-      productList: listProduct,
-      totalPrice: totalProductPrice,
-      uid: localStorage.getItem("uid"),
-      date: Timestamp.fromDate(new Date()),
-    });
+    // Validate invoice data
+    if (!newInvoiceFormData.to || !newInvoiceFormData.phone || !newInvoiceFormData.address) {
+      alert("Please fill all invoice fields.");
+      return;
+    }
 
-    console.log("Document written with ID: ", data);
-    Navigate("/dashboard/invoices");
-    setIsLoading(false);
+    if (!listProduct.length) {
+      alert("Please add at least one product.");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const data = await addDoc(collection(db, "invoice"), {
+        to: newInvoiceFormData.to,
+        phone: newInvoiceFormData.phone,
+        address: newInvoiceFormData.address,
+        productList: listProduct,
+        totalPrice: totalProductPrice,
+        uid: localStorage.getItem("uid"),
+        date: Timestamp.fromDate(new Date()),
+      });
+
+      console.log("Document written with ID: ", data.id);
+      Navigate("/dashboard/invoices");
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      alert("Failed to save the invoice. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <>
       <div className="heading">
-        <h4 className="new-invoice-heading"> New Invoice </h4>
+        <h4 className="new-invoice-heading">New Invoice</h4>
 
         <button
           type="button"
           className="button-save-new-invoice"
           onClick={saveAllData}
         >
-          Save Data  {isLoading && <i class="fas fa-spinner fa-pulse"></i>}
+          Save Data {isLoading && <i className="fas fa-spinner fa-pulse"></i>}
         </button>
       </div>
       <form className="new-invoice-form">
         <div className="first-row-of-new-invoice">
           <input
             type="text"
-            placeholder="to"
+            placeholder="To"
             className="new-invoice-input"
             value={newInvoiceFormData.to}
             name="to"
             onChange={handleNewInvoiceInputChange}
+            required
           />
           <input
             type="number"
-            placeholder="phone"
+            placeholder="Phone"
             className="new-invoice-input"
             value={newInvoiceFormData.phone}
             name="phone"
             onChange={handleNewInvoiceInputChange}
+           
+            required
+            
           />
           <input
             type="text"
-            placeholder="address"
+            placeholder="Address"
             className="new-invoice-input"
             value={newInvoiceFormData.address}
             name="address"
             onChange={handleNewInvoiceInputChange}
+            required
           />
         </div>
 
-        <h4 className="new-invoice-heading"> Add Products </h4>
+        <h4 className="new-invoice-heading">Add Products</h4>
         <div className="second-row-of-new-invoice">
           <input
             type="text"
@@ -123,6 +155,7 @@ const NewInvoice = () => {
             value={newInvoiceFormData.productName}
             name="productName"
             onChange={handleNewInvoiceInputChange}
+            required
           />
           <input
             type="number"
@@ -131,6 +164,7 @@ const NewInvoice = () => {
             value={newInvoiceFormData.price}
             name="price"
             onChange={handleNewInvoiceInputChange}
+            required
           />
           <input
             type="number"
@@ -140,6 +174,7 @@ const NewInvoice = () => {
             name="quantity"
             onChange={handleNewInvoiceInputChange}
             min={1}
+            required
           />
         </div>
         <div className="new-invoice-button-div">
@@ -155,39 +190,23 @@ const NewInvoice = () => {
       {listProduct.length > 0 && (
         <div className="product-Wrapper">
           <div className="product-div">
-            <p className="p" style={{ fontWeight: "bold" }}>
-              {" "}
-              Sr No.
-            </p>
-            <p className="p" style={{ fontWeight: "bold" }}>
-              Product Name
-            </p>
-            <p className="p" style={{ fontWeight: "bold" }}>
-              Price
-            </p>
-            <p className="p" style={{ fontWeight: "bold" }}>
-              Quantity
-            </p>
-            <p className="p" style={{ fontWeight: "bold" }}>
-              Total Price
-            </p>
+            <p className="p" style={{ fontWeight: "bold" }}>Sr No.</p>
+            <p className="p" style={{ fontWeight: "bold" }}>Product Name</p>
+            <p className="p" style={{ fontWeight: "bold" }}>Price</p>
+            <p className="p" style={{ fontWeight: "bold" }}>Quantity</p>
+            <p className="p" style={{ fontWeight: "bold" }}>Total Price</p>
           </div>
-          {
-            listProduct.map((product, index) => (
-              <div key={index} className="product-div">
-                <p className="p">{index + 1}</p>
-                <p className="p">{product.productName}</p>
-                <p className="p">{product.price}</p>
-                <p className="p">{product.quantity}</p>
-                <p className="p">{product.price * product.quantity}</p>
-              </div>
-            ))
-
-            // Add Total Price and Tax Calculation Here
-          }
+          {listProduct.map((product, index) => (
+            <div key={index} className="product-div">
+              <p className="p">{index + 1}</p>
+              <p className="p">{product.productName}</p>
+              <p className="p">{product.price}</p>
+              <p className="p">{product.quantity}</p>
+              <p className="p">{product.price * product.quantity}</p>
+            </div>
+          ))}
           <div className="total-wrapper">
-            {" "}
-            <p className="total-wrapper-p">Total Price :{totalProductPrice}</p>
+            <p className="total-wrapper-p">Total Price: {totalProductPrice}</p>
           </div>
         </div>
       )}

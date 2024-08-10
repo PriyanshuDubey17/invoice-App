@@ -111,5 +111,9 @@
       left: 10rem;
       bottom: 2rem;
       }
+      .not-h1{
+        font-size: 12px;
+        font-weight: 700;
+      }
 }
 
