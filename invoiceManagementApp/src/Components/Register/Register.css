@@ -75,3 +75,33 @@ h5 {
   /* background-color: #467FCF; */
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .form-div-region {
+    width: 100%; /* Make form take up full width */
+    padding: 0rem; /* Reduce padding for smaller screens */
+  }
+
+  form .button {
+    font-size: 1rem; /* Adjust button text size */
+  }
+
+  .password-toggle-register {
+    position: absolute;
+    left: 16rem;
+    bottom: 12.3rem; /* Adjust toggle position on smaller screens */
+  }
+  .div-password {
+    margin-right: 0.3rem;
+  }
+  .form-div-region {
+    height: 100vh;
+    padding: 0.5rem;
+  }
+  .do-not-account p {
+    margin-top: 0.3rem;
+  }
+  .do-not-account span {
+    display: none;
+  }
+}

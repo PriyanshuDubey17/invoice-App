@@ -183,7 +183,7 @@ function Register() {
             </button>
 
             <div className="do-not-account">
-              <p>or</p>
+              <span>or</span>
               <p>
                 Already have account? <Link to="/login">Login</Link>
               </p>
