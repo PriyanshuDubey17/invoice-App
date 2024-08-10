@@ -1,20 +1,24 @@
 .main-container {
   height: 100vh;
   width: 100vw;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   display: flex;
+   position: relative; 
 }
+
 
 .side-nav {
   width: 20%;
   background-color: #345656;
   height: 100%;
+  transition: transform 0.3s ease;
 }
 
 .main-content {
   width: 80%;
   background-color: #c7d7d7;
   height: 100%;
+  transition: width 0.3s ease;
 }
 
 .profile-logo-company-name {
@@ -71,4 +75,49 @@
   padding: 10px;
   color: white;
   font-weight: 600;
+}
+
+/* Menu icon */
+.menu-icon {
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #345656;
+  cursor: pointer;
+}
+
+.side-nav.open {
+  transform: translateX(0);
+}
+
+
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .side-nav {
+    width: 200px;
+    transform: translateX(-200px); /* Hide sidebar initially */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100%;
+    background-color: #345656;
+  }
+
+  .side-nav.open {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    width: 100%;
+  }
 }

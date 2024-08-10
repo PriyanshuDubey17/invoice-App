@@ -70,15 +70,15 @@ const Invoices = () => {
       <div className="">
       {invoices.map((invoice) => (
         <div key={invoice.id} className="invoice-data-fetch-box">
-          <p className="invoice-p">
-            <p className="invoice-p fb">To:</p> {invoice.to}
+          <p className="invoice-p to-right">
+            <p className="invoice-p fb">To:</p> <span>{invoice.to}</span>
           </p>
-          <p className="invoice-p">
-            <p className="invoice-p fb">Address:</p> {invoice.address}
+          <p className="invoice-p address-right">
+            <p className="invoice-p fb">Address:</p> <span>{invoice.address}</span>
           </p>
-          <p className="invoice-p">
+          <p className="invoice-p hidden">
             {" "}
-            <p className="invoice-p fb">Phone:</p> {invoice.phone}
+            <p className="invoice-p fb hidden">Phone:</p> {invoice.phone}
           </p>
 
           {/* <p className="invoice-p">
@@ -86,33 +86,33 @@ const Invoices = () => {
             <div className="product-list"> <span>{invoice.productList.map((product) => product.productName)}</span></div>
           </p> */}
 
-          <p className="invoice-p">
+          <p className="invoice-p total-right">
             {" "}
-            <p className="invoice-p pr fb">Total Price:</p>
-            {invoice.totalPrice}
-          </p>
-          <p className="invoice-p">
-            <p className="invoice-p fb">Date: </p>
+            <p className="invoice-p pr fb price-hidden"> Total Price:  </p><span> {invoice.totalPrice}</span></p>
+           
+         
+          <p className="invoice-p hidden">
+            <p className="invoice-p fb hidden">Date: </p>
             {invoice.date.toDate().toLocaleString()}
           </p>
           <button
-            className="invoice-delete-button"
+            className="invoice-delete-button view-delete"
             onClick={() => {
               deleteInvoices(invoice.id);
             }}
           >
             <i class="fa-solid fa-trash" style={{ paddingRight: "4px" }}></i>
-            Delete {isLoading && <i class="fas fa-spinner fa-pulse"></i>}
+            <span>Delete</span> {isLoading && <i class="fas fa-spinner fa-pulse"></i>}
           </button>
           <button
-            className="invoice-delete-button"
+            className="invoice-delete-button view"
             onClick={() => {
               Navigate("/dashboard/invoiceDetails", { state: invoice });
             }}
             style={{ backgroundColor: "royalblue" }}
           >
             <i class="fa-solid fa-eye" style={{ paddingRight: "4px" }}></i>
-            View 
+             <span>View</span>
           </button>
         </div>
       ))} {invoices.length <1 &&     <div className="not-invoices">

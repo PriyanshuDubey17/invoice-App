@@ -175,7 +175,7 @@ const Home = () => {
           <h2>Recent Invoice List</h2>
           <div className="recent-invoices-inner-div">
             <p style={{fontWeight:"bold"}}>Customer</p>
-            <p style={{fontWeight:"bold"}}> Date </p>
+            <p style={{fontWeight:"bold"}} className="hidden"> Date </p>
             <p style={{fontWeight:"bold"}}> Total </p>
           </div> 
           <div className="">
@@ -183,7 +183,7 @@ const Home = () => {
               invoices.slice(0, 5).map((invoice) => (
                 <div key={invoice.id} className="recent-invoices-inner-div">
                   <p >{invoice.to}</p>
-                  <p className="recentData-p">{new Date(invoice.date.seconds * 1000).toLocaleDateString('IND', { year: 'numeric', month: 'short', day: 'numeric' })}</p>
+                  <p className="recentData-p hidden">{new Date(invoice.date.seconds * 1000).toLocaleDateString('IND', { year: 'numeric', month: 'short', day: 'numeric' })}</p>
                   <p>{invoice.totalPrice}</p>
                 </div>
               ))

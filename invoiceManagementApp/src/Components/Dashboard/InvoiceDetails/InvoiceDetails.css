@@ -64,3 +64,28 @@ td {
   margin-top: 1rem;
   margin-right: 1rem;
 }
+
+
+@media (max-width: 768px) {
+  .invoice-details-wrapper {
+    width: 95%; /* Increase width slightly on smaller screens */
+  }
+
+  .invoice-details-header {
+    flex-direction: column; /* Stack company and customer details vertically */
+  }
+
+  .company-details {
+    text-align: center; /* Center align text on smaller screens */
+  }
+
+  .print-div {
+    text-align: center; /* Center the print button on smaller screens */
+    margin-left: 70%;
+    width: 25%;
+  }
+
+  .invoice-table {
+    font-size: 0.8rem; /* Further adjust font size for very small screens */
+  }
+}

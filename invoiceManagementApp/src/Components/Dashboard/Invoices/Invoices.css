@@ -60,3 +60,56 @@
   font-size: 20px;
   font-weight: 500;
 }
+
+
+/* Adjusted layout for smaller screens */
+@media (max-width: 768px) {
+  .invoice-data-fetch-box {
+    flex-wrap: wrap;
+    padding: 0;
+  }
+
+  .invoice-p {
+    width: 100%; /* Make each section full width */
+    /* background-color: red; */
+     /* For visibility; remove or adjust as needed */
+  }
+
+  .invoice-delete-button {
+    width: 100%; /* Full width for buttons on small screens */
+    height: 2rem;
+    margin-top:  10px; /* Spacing around the buttons */
+  }
+
+  .view {
+    width: 80%;
+    margin-left: auto;
+  }
+  .view-delete{
+    width: 80%;
+    margin-left: auto;
+  }
+
+  .to-right, .address-right, .total-right {
+    width: 100%;
+    margin-left: 20%;
+    height: 2rem;
+  }
+  .to-right span{
+  position: relative;
+  left: 10rem;
+  bottom: 2rem;
+  }
+
+  .address-right span{
+    position: relative;
+    left: 10rem;
+    bottom: 2rem;
+    }
+    .total-right span{
+      position: relative;
+      left: 10rem;
+      bottom: 2rem;
+      }
+}
+

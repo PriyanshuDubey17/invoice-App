@@ -85,3 +85,40 @@
   align-items: center;
   background-color: rgb(236, 236, 236);
 }
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .first-row-of-new-invoice,
+  .second-row-of-new-invoice {
+    flex-direction: column;
+  }
+
+  .new-invoice-input {
+    width: 100%;
+  }
+
+  .button-new-invoice{
+   
+    width: 90%;
+    margin-left: 26%;
+  }
+  .button-save-new-invoice {
+    width: 30%;
+  }
+
+  .total-wrapper-p {
+    width: 100%;
+  }
+
+  .total-wrapper {
+    justify-content: center;
+    text-align: center;
+  }
+  .new-invoice-heading{
+    margin-left: 10%;
+  }
+  .heading{
+background-color: #95ddab;
+  }
+}
