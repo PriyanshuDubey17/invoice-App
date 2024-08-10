@@ -87,12 +87,13 @@ h5 {
   }
 
   .password-toggle-register {
-    position: absolute;
-    left: 16rem;
-    bottom: 12.3rem; /* Adjust toggle position on smaller screens */
+    position: relative;
+    left: 15rem;
+    bottom: 2rem; /* Adjust toggle position on smaller screens */
   }
   .div-password {
-    margin-right: 0.3rem;
+    position: relative;
+    top: 1rem;
   }
   .form-div-region {
     height: 100vh;
